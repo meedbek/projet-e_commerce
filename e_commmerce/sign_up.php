@@ -1,11 +1,4 @@
-<?php 
-        try{
-            $bdd = new PDO('mysql:host=localhost;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        }
-        catch(Exception $e){
-            die('Error : '.$e->message);
-        }
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +27,16 @@
                     }
                     else
                     {
-                        
+                        try{
+                            $bdd = new PDO('mysql:host=localhost;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                        }
+                        catch(Exception $e){
+                            die('Error : '.$e->message);
+                        }
+                        $utilisateur = $bdd->prepare('INSERT INTO user(nom,prenom,email,_password) VALUES (?,?,?,?)');
+                        $utilisateur->execute(array($_POST['nom'],$_POST['prenom'],$_POST['email'],md5($_POST['password'])));
                     }
-                }
-                
+                }  
             ?>
         </span>
         <input type="submit" name='submit' value='confirmer'>

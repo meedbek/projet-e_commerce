@@ -41,7 +41,8 @@
                     <li>date et heure d\'arrivée : '.$vole['date_heure_arrive'].'</li>
                     <li>prix: '.$prix.' DH</li>
                 </ul>
-                </div>';
+                </div>
+                <div class = \'buy\'><button><a href = "">acheter</button></div>';
                 $no_result= false;
             }
             if($no_result)

@@ -18,9 +18,9 @@
         <div id = passagers>
         <h4>passagers</h4>
         <ul>
-            <li>adulte<input type = 'number' name='adulte' id='adulte'></li>
-            <li>enfant<input type = 'number' name='enfant' id='enfant'></li>
-            <li>bébé<input type = 'number' name='bébé' id='bébé'></li>
+            <li>adulte<input type = 'number' name='adulte' id='adulte' value=1 required></li>
+            <li>enfant<input type = 'number' name='enfant' id='enfant' value =0 required></li>
+            <li>bébé<input type = 'number' name='bébé' id='bébé' value =0 required></li>
         </ul>
         </div>
         <label for="classe">classe</label>
