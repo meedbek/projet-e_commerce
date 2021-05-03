@@ -1,3 +1,5 @@
+<?php include('file.php');?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +29,12 @@
 <div>
     <button><a href="achat_billets.php">option3</a></button>
 </div>
+
+<div>   
+    <button><a href="verify_login.php">verify_login</a></button>
+</div>
+
+
 
 </body>
 </html>

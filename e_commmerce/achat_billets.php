@@ -1,3 +1,4 @@
+<?php include('file.php');?>
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,9 @@
 </head>
 
 <body>
+<div>   
+    <button><a href="index.php">home</a></button>
+</div>
 <div id = info_billets>
     <form method = 'POST' action = 'resultat_de_recherche.php'>
         <input type = 'text' name='origine' id='origine' placeholder = 'origine'>
@@ -30,8 +34,21 @@
             <option value="première">première</option>
         </select>
 
-        <input type="submit" name='submit' value='chercher un vol'>
+        <input type="submit" name='chercher' value='chercher un vol'>
     </form>
+   
 </div>
+<?php
+        if(isset($_SESSION['email']))
+            echo '  <form  method="POST">
+                    <input type="submit" name="deconnexion" value = "deconnexion">
+                    </form>
+                ';
+        else
+            echo '  <form  method="POST" action = "login.php">
+                    <input type="submit" name="connexion" value = "connexion">
+                    </form>
+                ';
+?>
 </body>
 </html>

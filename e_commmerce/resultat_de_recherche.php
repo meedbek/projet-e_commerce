@@ -1,3 +1,6 @@
+<?php include('file.php');?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +12,9 @@
 </head>
 
 <body>
+    <div>   
+        <button><a href="index.php">home</a></button>
+    </div>
     <div id = resultat_recherche>
     <?php
         try{
@@ -17,7 +23,7 @@
         catch(Exception $e){
             die('Error : '.$e->message);
         }
-        if(isset($_POST['submit']))
+        if(isset($_POST['chercher']) || isset($_POST['deconnexion']) )
         {
             $resultat = $bdd->prepare('SELECT origine, destination,date_depart,heure_depart, date_heure_arrive, nombre, prix_economie,prix_business,prix_première,taux_enfant,taux_bébé
                                        FROM vole_disponible v inner join prix_societe  on v.id = societe_id  WHERE date_depart = ? AND origine = ? AND destination = ? ');
@@ -53,6 +59,25 @@
         
     ?>
     </div>
+    <?php
+        if(isset($_SESSION['email']))
+            echo '  <form  method="POST">
+                    <input type = "hidden" name="origine"  value = '.$_POST['origine'].'>
+                    <input type = "hidden" name="destination" value = '.$_POST['destination'].'>
+                    <input type = "hidden" name="date_depart" value = '.$_POST['date_depart'].'>
+                    <input type = "hidden" name="adulte"  value= '.$_POST['adulte'].'>
+                    <input type = "hidden" name="enfant" value ='.$_POST['enfant'].'>
+                    <input type = "hidden" name="bébé"  value = '.$_POST['bébé'].' >
+                    <input type = "hidden" name="classe" value='.$_POST['classe'].'>
+                    <input type="submit" name="deconnexion" value = "deconnexion">
+                ';
+            
+        else
+            echo '  <form  method="POST" action = "login.php">
+                    <input type="submit" name="connexion" value = "connexion">
+                    </form>
+                ';
+    ?>
 
 </body>
 </html>
