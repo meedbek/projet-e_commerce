@@ -6,15 +6,37 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
-    <title>blog</title>
-    <!--<link rel=stylesheet href="css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <title>E_commerce</title>
+
 </head>
 
 <body>
-    <div>   
-        <button><a href="index.php">home</a></button>
-    </div>
+    
+    <header>
+        <div>   
+            <button><a href="index.php">home</a></button>
+        </div>
+    <?php
+        if(isset($_SESSION['email']))
+            echo '  <form  method="POST">
+                    <input type = "hidden" name="origine"  value = '.$_POST['origine'].'>
+                    <input type = "hidden" name="destination" value = '.$_POST['destination'].'>
+                    <input type = "hidden" name="date_depart" value = '.$_POST['date_depart'].'>
+                    <input type = "hidden" name="adulte"  value= '.$_POST['adulte'].'>
+                    <input type = "hidden" name="enfant" value ='.$_POST['enfant'].'>
+                    <input type = "hidden" name="bébé"  value = '.$_POST['bébé'].' >
+                    <input type = "hidden" name="classe" value='.$_POST['classe'].'>
+                    <input type="submit" name="deconnexion" value = "deconnexion">
+                ';
+            
+        else
+            echo    '<div id = login>
+                    <button><a href="login.php">login</a></button>
+                    </div>
+                    ';
+    ?>
+    </header>
+    
     <div id = resultat_recherche>
     <?php
         try{
@@ -59,25 +81,7 @@
         
     ?>
     </div>
-    <?php
-        if(isset($_SESSION['email']))
-            echo '  <form  method="POST">
-                    <input type = "hidden" name="origine"  value = '.$_POST['origine'].'>
-                    <input type = "hidden" name="destination" value = '.$_POST['destination'].'>
-                    <input type = "hidden" name="date_depart" value = '.$_POST['date_depart'].'>
-                    <input type = "hidden" name="adulte"  value= '.$_POST['adulte'].'>
-                    <input type = "hidden" name="enfant" value ='.$_POST['enfant'].'>
-                    <input type = "hidden" name="bébé"  value = '.$_POST['bébé'].' >
-                    <input type = "hidden" name="classe" value='.$_POST['classe'].'>
-                    <input type="submit" name="deconnexion" value = "deconnexion">
-                ';
-            
-        else
-            echo '  <form  method="POST" action = "login.php">
-                    <input type="submit" name="connexion" value = "connexion">
-                    </form>
-                ';
-    ?>
+    
 
 </body>
 </html>

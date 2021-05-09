@@ -49,47 +49,65 @@
         }
     }
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
-    <title>blog</title>
+    <title>E_commerce</title>
 </head>
+
 <body>
-<div>   
-    <button><a href="index.php">home</a></button>
-</div>
-<form method='POST'>
+    
+    <header>
+        <div>   
+            <button><a href="index.php">home</a></button>
+        </div>
+    
+    </header>
+
+
 <?php 
     if($connected)
     {
-        echo'you are already conneted';
-        echo '  <form  method="POST">
-                    <input type="submit" name="deconnexion" value = "deconnexion">
-                    </form>
-                ';
+?>
+
+    <section>
+        <p>you are already connected</p>
+        <form  method="POST">
+            <input type="submit" name="deconnexion" value = "deconnexion">
+        </form>
+    </section> 
+
+
+<?php
     }
     else
     {
 ?>
 
-    <input type='email' name='email' placeholder="email" id='email'>
+    <section>
+    <form method='POST'>
+        <input type='email' name='email' placeholder="email" id='email'>
 
-    <input type="password" name='password' placeholder="entrer le mot de passe" id='pswd' >
-    <input type="checkbox" name='remember_me' id='remember me'>
-    <input type='submit'  name='login'>
-<?php
+        <input type="password" name='password' placeholder="entrer le mot de passe" id='pswd' >
+        <input type="checkbox" name='remember_me' id='remember me'>
+        <input type='submit'  name='login'>
+    <?php
         if($wrong_email)
-            echo ' wrong email';
+            echo'<p>wrong email</p>';
         else if($wrong_password)
-            echo 'wrong password';
+            echo'<p>wrong password</p>';
+    ?>
+    </form>
+    </section>    
+    
+<?php
     }
 ?>
-
-</form>
-
-
+    
 
 </body>
 
