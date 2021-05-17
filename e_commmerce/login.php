@@ -29,14 +29,16 @@
                     $array = $password->fetch(); 
                     if(md5($_POST['password']) == $array['_password'])
                     {
-                        session_start();
+                        
                         $_SESSION['email'] = $_POST['email'];
                         if(isset($_POST['remember_me']) && $_POST['remember_me'] == 'on')
                         {
                             setcookie('email',$_POST['email'],time() + 3600*24*30);
                             setcookie('password',md5($_POST['password']),time() +3600*24*30);
                         }
-                        header("Location : achat_billets.php",true,307);
+                        $wrong_email = false;
+                        break;
+                      
                     }
                     else
                     {
@@ -56,17 +58,15 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
+    <link rel="stylesheet" href="css/style.css" />
     <title>E_commerce</title>
+    <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     
-    <header>
-        <div>   
-            <button><a href="index.php">home</a></button>
-        </div>
-    
-    </header>
+<?php include('header.php')?>
+
 
 
 <?php 
@@ -103,7 +103,7 @@
     ?>
     </form>
     </section>    
-    
+
 <?php
     }
 ?>

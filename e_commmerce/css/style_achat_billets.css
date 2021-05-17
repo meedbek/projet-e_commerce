@@ -1,0 +1,11 @@
+#info_billets div {
+   display: flex;
+   justify-content: center ;
+}
+
+#info_billets {
+    height: 75%;
+    display : flex;
+    flex-direction: column;
+    justify-content: space-around; 
+}

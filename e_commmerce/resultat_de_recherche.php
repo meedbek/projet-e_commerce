@@ -6,19 +6,37 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
+    <link rel="stylesheet" href="css/style.css" />
     <title>E_commerce</title>
-
+    <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     
     <header>
-        <div>   
-            <button><a href="index.php">home</a></button>
-        </div>
+
+    <h1><a href = "index.php"><span>E</span>NSIAS</a></h1>
+
+    <div class="container">
+    <ul id="list">
+            <li class ="choix" >
+                choix
+                <ul class="sub">
+                    <li><span class = "logo"><i class="fas fa-plane" ></i></span><a href="achat_billets.php">Billets</a></li>
+                    <li><a href="">Options2</a></li>
+                    <li><a href="">Options3</a></li>
+                </ul>
+            </li>
+            <li class = "choix">contact</li>
+            <li></li>
+        </ul>
+    </div>
+    
+    <div id = options>
+
     <?php
         if(isset($_SESSION['email']))
-            echo '  <form  method="POST">
+            echo '  <form  id = signOut method="POST">
                     <input type = "hidden" name="origine"  value = '.$_POST['origine'].'>
                     <input type = "hidden" name="destination" value = '.$_POST['destination'].'>
                     <input type = "hidden" name="date_depart" value = '.$_POST['date_depart'].'>
@@ -30,13 +48,20 @@
                 ';
             
         else
-            echo    '<div id = login>
-                    <button><a href="login.php">login</a></button>
-                    </div>
-                    ';
+            echo   '    
+                        <div id = sign_up>
+                            <a href="sign_up.php"><button>sign_up</button></a>
+                        </div>
+                
+                        <div id = login>
+                            <a href="login.php"><button>login</button></a>
+                        </div>'
+                    ;
     ?>
+    </div>
     </header>
     
+    <section>
     <div id = resultat_recherche>
     <?php
         try{
@@ -81,6 +106,7 @@
         
     ?>
     </div>
+    </section>
     
 
 </body>

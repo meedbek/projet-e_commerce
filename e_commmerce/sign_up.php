@@ -1,18 +1,19 @@
 <?php include('file.php');?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <title>blog</title>
-    <!--<link rel=stylesheet href="css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>   
-        <button><a href="index.php">home</a></button>
-    </div>
-    
+
+    <?php include("header.php");?>
+
+    <section>
     <form method= 'POST' action="sign_up.php">
         <input type="text" name = 'nom' id = 'nom' placeholder="nom" required>
         <input type="text" name = 'prenom' id = 'prenom' placeholder="prenom" required>
@@ -43,6 +44,7 @@
         </span>
         <input type="submit" name='submit' value='confirmer'>
     </form>
+    </section>
 </body>
 </html>
 
