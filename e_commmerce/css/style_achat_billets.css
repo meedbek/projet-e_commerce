@@ -4,8 +4,46 @@
 }
 
 #info_billets {
-    height: 75%;
+    height: 75px;
     display : flex;
-    flex-direction: column;
-    justify-content: space-around; 
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.zone
+{
+    background-color: rgb(44, 43, 43);
+    border : solid 3px;
+}
+#chercher{
+    background-color: dimgrey;
+}
+
+#passagers
+{
+    position: relative;
+    text-align: center;
+    padding-top : 22px;
+}
+#menu{
+    display ;
+    list-style : none;
+    position : absolute;
+    top : 80px;
+    background-color: dimgrey;
+    padding : 20px;
+    width : 150px;
+}
+
+
+#passagers ul li input {
+    width : 50px
+}
+
+
+#passagers ul li{
+    display : flex;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
 }

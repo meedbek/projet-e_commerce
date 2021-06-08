@@ -35,11 +35,6 @@
 <!---div>   
     <button><a href="verify_login.php">verify_login</a></button>
 </div--->
-<script language="script">
-   
-    </script>
-
-
 
 </body>
 </html>

@@ -14,7 +14,7 @@
             </ul>
         </li>
         <li class = "choix">contact</li>
-        <li></li>
+        <li class = "choix">Á propos</li>
     </ul>
 </div>
     

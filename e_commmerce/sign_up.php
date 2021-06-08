@@ -21,28 +21,37 @@
         <input type="password" name = 'password' id = 'password' placeholder='mot de passe' required>
         <span>
             <input type="password" name = 'confirm_password' id = 'confirm_password' placeholder='confirmer mot de passe' required>
+            <input type="submit" name='submit' value='confirmer'>
             <?php 
                 if(isset($_POST['submit']))
                 {
                     if($_POST['password'] != $_POST['confirm_password'])
                     {
-                        echo '<p>mot de passe non valide</p>';
+                        echo '<p>Les deux mots de passes que vous avez entrer ne sont pas identiques </p>';
                     }
                     else
                     {
                         try{
-                            $bdd = new PDO('mysql:host=localhost;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                            $bdd = new PDO('mysql:host=localhost:3307;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
                         }
                         catch(Exception $e){
                             die('Error : '.$e->message);
                         }
                         $utilisateur = $bdd->prepare('INSERT INTO user(nom,prenom,email,_password) VALUES (?,?,?,?)');
-                        $utilisateur->execute(array($_POST['nom'],$_POST['prenom'],$_POST['email'],md5($_POST['password'])));
+                        try{
+                            $utilisateur->execute(array($_POST['nom'],$_POST['prenom'],$_POST['email'],md5($_POST['password'])));
+                            echo '<p>Vous vous êtes inscrit avec succes</p>';
+                        }
+                        catch(Exception $e )
+                        {
+                            echo'<p>L\'email que vous avez entrer existe déja ';
+                        }
+                        
                     }
                 }  
             ?>
         </span>
-        <input type="submit" name='submit' value='confirmer'>
+        
     </form>
     </section>
 </body>

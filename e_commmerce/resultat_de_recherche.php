@@ -28,7 +28,7 @@
                 </ul>
             </li>
             <li class = "choix">contact</li>
-            <li></li>
+            <li class = "choix">Á propos</li>
         </ul>
     </div>
     
@@ -49,14 +49,14 @@
             
         else
             echo   '    
-                        <div id = sign_up>
-                            <a href="sign_up.php"><button>sign_up</button></a>
-                        </div>
-                
-                        <div id = login>
-                            <a href="login.php"><button>login</button></a>
-                        </div>'
-                    ;
+                    <div id = sign_up>
+                        <a href="sign_up.php"><button>S\'identifier</button></a>
+                    </div>
+
+                    <div id = login>
+                        <a href="login.php"><button>Connexion</button></a>
+                    </div>
+                    ';
     ?>
     </div>
     </header>
@@ -65,7 +65,7 @@
     <div id = resultat_recherche>
     <?php
         try{
-            $bdd = new PDO('mysql:host=localhost;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $bdd = new PDO('mysql:host=localhost:3307;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         catch(Exception $e){
             die('Error : '.$e->message);
@@ -95,7 +95,7 @@
                     <li>prix: '.$prix.' DH</li>
                 </ul>
                 </div>
-                <div class = \'buy\'><button><a href = "">acheter</button></div>';
+                <div class = \'buy\'><button>acheter</button></div>';
                 $no_result= false;
             }
             if($no_result)

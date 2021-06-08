@@ -1,5 +1,3 @@
-<?php include('file.php');?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +7,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style_achat_billets.css" />
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
-    
+    <script src="js/script1.js"></script>
 </head>
 
 <body>
 
-<?php include('header.php');?>
 
 <section >
     <form method = 'POST' action = 'resultat_de_recherche.php' id = 'info_billets'>
@@ -27,9 +24,9 @@
         <div id = 'passagers' class = 'zone'>
             passagers
             <ul id='menu' >
-                <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value=1 required></li>
-                <li><h4>enfant</h4><input type = 'number' name='enfant' id='enfant' value =0 required ></li>
-                <li><h4>bébé</h4><input type = 'number' name='bébé' id='bébé' value =0 required></li>
+                <li>adulte<input type = 'number' name='adulte' id='adulte' value=1 required></li>
+                <li>enfant<input type = 'number' name='enfant' id='enfant' value =0 required></li>
+                <li>bébé<input type = 'number' name='bébé' id='bébé' value =0 required></li>
             </ul>
         </div>
         <div id = 'classe'>
@@ -46,14 +43,6 @@
 
 </section>
 
-<script>var passager = document.getElementById('passagers');
-
-    var menu = document.getElementById('menu');
-
-    passager.addEventListener("click" , function(){     
-        menu.style.display = 'block';
-    });
-</script>
 
 </body>
 </html>

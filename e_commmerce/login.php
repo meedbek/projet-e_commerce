@@ -11,7 +11,7 @@
         if(isset($_POST['login']))
         {
             try{
-            $bdd = new PDO('mysql:host=localhost;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $bdd = new PDO('mysql:host=localhost:3307;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             }   
             catch(Exception $e)
             {
@@ -31,6 +31,7 @@
                     {
                         
                         $_SESSION['email'] = $_POST['email'];
+                        header("Location: index.php",true,307);
                         if(isset($_POST['remember_me']) && $_POST['remember_me'] == 'on')
                         {
                             setcookie('email',$_POST['email'],time() + 3600*24*30);

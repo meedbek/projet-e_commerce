@@ -21,7 +21,7 @@ This is a sample application to help developers start building PHP applications 
     Use this command to run the test suite
 
     	composer test
-4.  Navigate to *http://localhost:8080* to test locally
+4.  Navigate to *http://localhost:3307:8080* to test locally
 
 ## Authentication
 1.  **Certificate Authentication:**
