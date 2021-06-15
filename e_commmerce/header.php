@@ -8,7 +8,7 @@
         <li class ="choix" >
             choix
             <ul class="sub">
-                <li><span class = "logo"><i class="fas fa-plane" ></i></span><a href="achat_billets.php">Billets</a></li>
+                <li><a href="achat_billets.php">Billets</a></li>
                 <li><a href="">Options2</a></li>
                 <li><a href="">Options3</a></li>
             </ul>

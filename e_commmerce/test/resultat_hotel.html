@@ -1,0 +1,100 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name=viewport content=widthdevice-width, initial-scale=1.0>
+    <link rel="stylesheet" href="file:///D:/ENSIAS/projet/e_commmerce/css/style.css" />
+    <link rel="stylesheet" href="file:///D:/ENSIAS/projet/e_commmerce/css/resultat_hotel.css" />
+    <title>E_commerce</title>
+    <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <header>
+
+    <h1><a href = "index.php"><span>E</span>NSIAS</a></h1>
+
+    <div class="container">
+    <ul id="list">
+            <li class ="choix" >
+                choix
+                <ul class="sub">
+                    <li><span class = "logo"><i class="fas fa-plane" ></i></span><a href="achat_billets.php">Billets</a></li>
+                    <li><a href="">Options2</a></li>
+                    <li><a href="">Options3</a></li>
+                </ul>
+            </li>
+            <li class = "choix">contact</li>
+            <li class = "choix">Á propos</li>
+        </ul>
+    </div>
+    
+    <div id = options>
+
+        
+                    <div id = sign_up>
+                        <a href="sign_up.php"><button>S'identifier</button></a>
+                    </div>
+
+                    <div id = login>
+                        <a href="login.php"><button>Connexion</button></a>
+                    </div>
+                        </div>
+    </header>
+    
+    <section>
+    <div id = resultat_recherche>
+       
+                <div class = "hotel">
+                    <div class = "image">
+                        <img src="téléchargement.png"/>
+                    </div>      
+                    <div class = 'block1'>
+                            <span>Residence Inn by Marriott London Downtown &nbsp</span>
+                            <span>4stars </span>
+                            <span>383 COLBORNE STREET LONDON</span>    
+                            <span>0.6 du centre </span> 
+                            <div class = "description hide " >The Residence Inn by Marriott London Downtown hotel is being renovated! Our decorated, roomy suites are much larger than the size of most hotel rooms and our great downtown London Ontario location on Colborne Street at King Street makes quick work of getting where you need to be. We support your work rhythm with the perfect extended stay experience which combines all the comforts of home with our passion for making every guest feel welcome. Enjoy spacious suites with separate living and sleeping areas and fully equipped kitchens. Our fitness centre help you keep to a productive routine and our free wired and wireless high-speed Internet access coupled with ample work areas and our business centre will help you to sustain your ambitious professional pace. At Residence Inn, we believe in openness, freedom and travelling the way you love to live. We are committed to making sure that when you travel here, you dont just feel like a guest – you feel like yourself!</div>
+                        </div>
+                    <div class = 'block2'>
+                        130.69 CAD
+                        <div class = 'buy'><button>Sélectionner</button></div>
+                    </div>
+                        
+                </div>    </div>
+    </section>
+    
+    <script>
+       function isOverflown(element) {
+                return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+                }
+            array = document.querySelectorAll('.description');
+            for(i=0;i<array.length;i++)
+            {
+                if( isOverflown(array[i]) )
+                    array[i].parentElement.innerHTML += "<span class = 'more'>show more<span>";
+            }
+
+            document.querySelectorAll('.more').forEach(item => {item.addEventListener('click',function(){
+                    var description = this.previousElementSibling;
+                    if( description.classList.contains('hide'))
+                    {
+                        description.classList.remove('hide');
+                        this.innerHTML = 'show less';
+                    }
+                    else
+                    {
+                        description.classList.add('hide');
+                        this.innerHTML = 'show more';
+                    }
+                })
+            });
+    </script>
+</body>
+</html>
+    
+

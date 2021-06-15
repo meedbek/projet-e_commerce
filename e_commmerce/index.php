@@ -1,4 +1,4 @@
-<?php include('file.php');?>
+<?php include('session.php');?>
 
 
 <!DOCTYPE html>
@@ -21,8 +21,8 @@
     <a href="achat_billets.php"><button> billets avion</button></a>
     </div>
 
-    <div class = "objects">   
-    <a href=""><button>option2</button></a>
+    <div id = 'hotel' class = "objects">   
+    <a href="hotel.php"><button>Hotel</button></a>
     </div>
 
     <div class = "objects">

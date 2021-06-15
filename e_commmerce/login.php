@@ -1,4 +1,4 @@
-<?php include('file.php');?>
+<?php include('session.php');?>
 
 <?php
     $connected =false;
@@ -60,6 +60,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style_login.css" />
     <title>E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
@@ -90,12 +91,15 @@
 ?>
 
     <section>
+     <div>   
+    <h1 class='ll'><span>E</span>NSIAS</h1>    
     <form method='POST'>
-        <input type='email' name='email' placeholder="email" id='email'>
+    <h2>connexion</h2>
+    <div class='em'><i class="fas fa-at" style="box-sizing:border-box;padding:40px;color:#c70067;"></i><input type='email' name='email' placeholder="email" id='email'></div>
 
-        <input type="password" name='password' placeholder="entrer le mot de passe" id='pswd' >
-        <input type="checkbox" name='remember_me' id='remember me'>
-        <input type='submit'  name='login'>
+    <div class="em2"><i class="fas fa-lock" style="padding:40px;color:green;"></i><input type="password" name='password' placeholder="entrer le mot de passe" id='pswd' ></div>
+        <input type="checkbox" name='remember_me' id='remember me'>remember me
+        <input type='submit'  name='login' value='connexion'>
     <?php
         if($wrong_email)
             echo'<p>wrong email</p>';
@@ -103,6 +107,7 @@
             echo'<p>wrong password</p>';
     ?>
     </form>
+    </div>
     </section>    
 
 <?php

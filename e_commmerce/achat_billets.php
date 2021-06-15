@@ -1,4 +1,4 @@
-<?php include('file.php');?>
+<?php include('session.php');?>
 
 <!DOCTYPE html>
 <html>
@@ -25,34 +25,50 @@
             <input type = 'date' name='date_depart' id='date_depart' class = 'zone'> 
         </div>
         <div id = 'passagers' class = 'zone'>
-            passagers
-            <ul id='menu' >
-                <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value=1 required></li>
-                <li><h4>enfant</h4><input type = 'number' name='enfant' id='enfant' value =0 required ></li>
-                <li><h4>bébé</h4><input type = 'number' name='bébé' id='bébé' value =0 required></li>
-            </ul>
+            <p>passagers</p>
+            <span class = 'triangle'></span>
+            <div id="menu">
+                <div id="pin"></div>
+                <ul >
+                    <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value=1 required></li>
+                    <li><h4>enfant</h4><input type = 'number' name='enfant' id='enfant' value =0 required ></li>
+                    <li><h4>bébé</h4><input type = 'number' name='bébé' id='bébé' value =0 required></li>
+                </ul>
+            </div>
+            
         </div>
-        <div id = 'classe'>
-            <select name="classe"  class = 'zone' >
-                <option value='economie' default>economie</option>
-                <option value="business">business</option>
-                <option value="première">première</option>
+        <div id = 'classe' class = 'zone'>
+            <select name="classe"   >
+                <option value='ECONOMY' default>economie</option>
+                <option value="PREMIUM_ECONOMY">premium_economie</option>
+                <option value="BUSINESS">business</option>
+                <option value="FIRST">première</option>
             </select>
+            <span class = 'triangle'></span>
         </div>
-        <div id = 'chercher un vol'><input type="submit" name='chercher' value='chercher un vol' id='chercher'></div>
+        <div id = 'chercher_vol'><input type="submit" name='chercher' value='' id='chercher'></div>
         
     </form>
    
 
 </section>
 
-<script>var passager = document.getElementById('passagers');
+<script>
+    var passager = document.getElementById('passagers');
 
     var menu = document.getElementById('menu');
 
-    passager.addEventListener("click" , function(){     
-        menu.style.display = 'block';
+    passager.addEventListener("click" , function(event){     
+        event.stopPropagation();
+        menu.style.visibility = 'visible';
     });
+
+    document.getElementsByTagName('body')[0].addEventListener("click",function(event){
+        event.stopPropagation();
+        menu.style.visibility = 'hidden';
+    });
+
+
 </script>
 
 </body>

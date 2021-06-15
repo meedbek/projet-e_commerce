@@ -1,0 +1,99 @@
+#resultat_recherche
+{
+    margin-bottom : 20px;
+}
+
+.hotel
+{
+    display : flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    background-color: white;
+    width : 1000px;
+    border-radius: 15px;
+    height : fit-content;
+    margin-bottom : 50px;
+    padding : 20px 10px;
+}
+
+.image
+{
+    align-self: flex-start;
+
+}
+
+
+.block1
+{
+    align-self: flex-start;
+    width : 550px;
+    height : fit-content;
+}
+
+.stars
+{
+    display: flex;
+}
+h3
+{
+    display: inline;
+}
+.star{
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    min-height : 20px;
+    min-width : 20px;
+    background-color: yellow; 
+}
+
+svg{
+    width: 15px;
+    height: 15px;
+}
+.description
+{
+    margin-top: 10px;
+}
+.hide
+{
+    overflow-y: hidden;
+    height : 9.1em;
+}
+
+.more
+{
+    color : blue;
+    cursor: pointer;
+}
+
+.block2
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left : solid black 3px;
+    height: 13em;
+    padding : 9px;
+    max-width: 160px;
+}
+
+h2{
+    /*margin-top: 0px;*/
+}
+
+.info{
+    font-size: 17px;
+    text-align: end;
+}
+
+.buy button{
+    background-image: none;
+    background-color: rgb(201, 78, 21);
+    width : 100%;
+    height:100%;
+    border:1px solid;
+    border-radius:5px;
+    cursor : pointer;
+    font-size: large;
+    color:white;
+    height : 50px
+}

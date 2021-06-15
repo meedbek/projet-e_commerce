@@ -1,4 +1,4 @@
-<?php include('file.php');?>
+<?php include('session.php');?>
 
 <!DOCTYPE html>
 <html>
@@ -7,20 +7,26 @@
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <title>blog</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style_sign_up.css" />
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
 
     <?php include("header.php");?>
 
     <section>
+        <div style='margin-top:0px;'>
+    <h1 class='ll'><span>E</span>NSIAS</h1> 
     <form method= 'POST' action="sign_up.php">
-        <input type="text" name = 'nom' id = 'nom' placeholder="nom" required>
-        <input type="text" name = 'prenom' id = 'prenom' placeholder="prenom" required>
-        <input type="email" name = 'email' id= 'email' placeholder="email" required>
-        <input type="password" name = 'password' id = 'password' placeholder='mot de passe' required>
-        <span>
-            <input type="password" name = 'confirm_password' id = 'confirm_password' placeholder='confirmer mot de passe' required>
+    <h2>Inscription</h2>
+    
+   
+        <div class="l1"><i class="fas fa-user-check" style="padding:40px;color:lightgreen;"></i><input type="text" name = 'nom' id = 'nom' placeholder="nom" required></div>
+        <div class="l2"><i class="fas fa-user" style='padding:40px;color:lightgreen;'></i><input type="text" name = 'prenom' id = 'prenom' placeholder="prenom" required></div>
+        <div class="l1"><i class="fas fa-at" style="box-sizing:border-box;padding:40px;color:#c70067;"></i><input type="email" name = 'email' id= 'email' placeholder="email" required></div>
+        <div class="l1"> <i class="fas fa-lock" style="padding:40px;color:green;"></i><input type="password" name = 'password' id = 'password' placeholder='mot de passe' required></div>
+           <div class="l1"><i class="fas fa-lock" style="padding:40px;color:green;"></i> <input type="password" name = 'confirm_password' id = 'confirm_password' placeholder='confirmer mot de passe' required></div>
             <input type="submit" name='submit' value='confirmer'>
             <?php 
                 if(isset($_POST['submit']))
@@ -50,9 +56,10 @@
                     }
                 }  
             ?>
-        </span>
+        
         
     </form>
+            </div>
     </section>
 </body>
 </html>
