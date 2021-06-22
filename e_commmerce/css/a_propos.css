@@ -1,0 +1,40 @@
+body
+{
+    background-color: #f1eeee;
+}
+
+.mission{
+    text-align: center;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    margin : 50px;
+    padding: 50px;
+    width: 65%;
+}
+
+.mission h1{
+    margin : 0;
+}
+
+.propos
+{
+    width: 70%;
+    margin : 0;
+}
+
+.propos h3
+{
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff;
+    text-align: center;
+    color :white;
+    margin: 0;
+}
+
+.propos p 
+{
+    margin: 0;
+    padding : 15px;
+    background-color: white;
+}

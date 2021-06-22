@@ -1,0 +1,169 @@
+
+Resumé:
+
+Le sujet de notre projet de fin d’année consistait à développer un «Site web e-commerce ».Notre travail s’est fait en plusieurs phases: Une phase
+d’analyse et de conception et une phase de développement.
+Grace à l’aide de notre encadrant, nous avons appris, durant ces derniers mois, à utiliser
+différents outils et découvert plusieurs concepts qui nous ont aidés à développer cette application.
+Dans un premier lieu, nous avons commencé par créer nos pages du site web
+puis on a crée un espace utilisateur et tout ce qui est en rapport avec le developpement back-end à l'aide de plusieurs outils qu'on nommera à la derniére partie de ce document.
+Enfin, on a développé le front-end afin de donner un bon aspect au site web.
+
+
+Abstract:
+
+The subject of our end-of-year project was to develop an "e-commerce website." Our work was done in several phases: A design and 
+analysis phase  and a development phase.
+Thanks to the help of our supervisor, we have learned, during these last months, to use
+different tools and discovered several concepts that helped us to develop this
+application.
+First, we started by creating our website pages,
+then we created a user space and everything related to back-end development using several tools that we will name in the last part of this document.
+finally we developed the front-end in order to give a good appearance to the website.
+
+
+
+Introduction génerale:
+De nos jours, de moins en moins les consommateurs veulent
+voyager pour faire leur emplette, grâce à l’Internet ces consommateurs
+peuvent faire tous leurs achats sans quitter leurs domiciles. Ce type
+d’emplette s’intitule le commerce électronique. Celui-ci est un moyen
+peu coûteux qui relie des ordinateurs pour effectuer des opérations
+commerciales en épargnant temps et argent.
+Le commerce électronique s’avère utile pour les consommateurs,
+mais il est aussi une composante importante dans les activités
+quotidiennes des commerçants. Il leur permet de contacter leurs clients et
+fournisseurs, de faire leurs publicité et même d’organiser la facturation et
+la distribution de leurs produits et service de façon efficace. De plus, il
+diminue les coûts d’exploitation de l’entreprise.
+À première vue, le concept de faire des ventes et des achats en
+ligne avec une simple touche de la souris semble facile . Toutefois , le
+processus et les fonctions techniques qui permettent ces transactions
+peuvent être complexes selon le type et la taille de l’entreprise . Les
+réseaux, les logiciels et les composants humains sont la base de la
+complexité de commerce électronique.Il s’agit d’un domaine en
+continuelle expansion.
+C’est dans ce cadre que s’inscrit notre projet de fin d’année réalisé . L’objectif du projet
+est de créer un site web e-commerce dynamique permettant de faciliter l'achat des billets d'avion ainsi que la réservation des hôtels.
+Ce rapport est structuré en deux parties. La première partie, intitulée contexte général du
+projet et le cahier de charge est organisé en un chapitre composé de six sous-parties. Ce dernier décrit le cadre général du projet ainsi
+l’étude effectuée et les besoins fonctionnels et non fonctionnels du site.
+Quant à la deuxième partie , elle est consacrée à l'analyse et la conception du
+projet.Cette partie comporte deux chapitres. Dans le premier nous exposons les outils
+d’analyse et conception dont nous nous sommes servis pour établir les étapes de création du
+site web , tandis que le deuxième chapitre décris les étapes conçues et les outils utilisées pour la réalisation
+finale de projet tandis que la présentation du projet.
+Nous terminerons ce rapport par une conclusion qui sera consacrée à l’apport de notre
+application, à ses limites et aux perspectives qu’elle peut engendrer.
+
+
+
+chapitre 1:
+-introduction:
+Au début de notre travail sur le projet et vu notre modeste connaissance du domaine
+de développement web, nous avions besoin au début de mieux savoir comment les choses se
+déroulent dans cette partie de l'informatique et donc on a commencé par apprendre les outils de développement.Pour donc nous permettre de spécifier
+les fonctionnalités générales et le cahier de charges.C'est ce qu'on présenteras dans cette première partie.
+-contexte générale:
+De nos jours voyager et chercher le logement est une nécessité pour différentes raisons.C'est ici que le role de l'informatique
+est important en facilitant la réservation d'hôtels et l'achat des billets d'avion dans un temps très bref.
+Notre projet donc a pour but de développer un site web qui peut répondre à ces besoins.
+
+-problématique:
+Au cours de notre travail concernant le projet de fin d’année au sein du service informatique nous souhaitons
+établir un site de commerce électronique « E-commerce » pour faciliter le voyage et l'achat des billets destinée aux clients
+qui cherchent à voyager tout en facilitant l recherche du logement sans perte de temps.
+
+-objectif:
+L'objectif principal de notre site e-commerce et de faciliter l'achat des billets et la réservation d'hôtel en effet ce site permet de:
+.D'offrir les voles disponibles avec prix dans un ordre croissant
+.Offrir la réservation des hôtels disponibles avec la devise du pays choisi
+
+
+-fonctionnalités générale:
+front-end:
+
+
+
+besoin fonctionnel:
+Notre application doit contenir :
+• Une page D’accueil :
+C’est une page où il aura une présentation du site web.
+• Une page des choix :
+C’est une page où on choisiras ce qu'on veut avoir soit un billet soit la réservation d'un hotel
+• Une page de contact :
+C’est une page où il aura un formulaire de contact.
+• Une page d’à propos :
+C’est une page où il aura une présentation de l’équipe et du site web.
+• Des pages d’authentification :
+C’est des pages d'inscription/connexion ou l'utilisateur doit donner son compte et son mot de passe pour accéder au fonctionnalité du site ou
+s'inscrire pour pouvoir se connecter en remplissant les informations nécessaire.
+
+
+Besoin non fonctionnel
+Notre Front-End doit respecter les critères suivants :
+• Des couleurs homogènes :
+Notre Front-End doit avoir des couleurs homogènes qui donne une interface élégante.
+• Compatibilité :
+Notre application doit être compatible avec la machine de l’utilisateur, ainsi son screen résolution c’est-à-dire soit il est sur sa tablette ou son pc ou son smartphone.
+• Capacité fonctionnelle et convivialité :
+Le système doit être facilement utilisable et qu’il dispose d’interfaces conviviales, notamment par le
+respect des règles d’ergonomie
+
+backend:
+Besoin fonctionnel
+Les besoins fonctionnels sont les besoins spécifiant un comportement d’entrée/sortie du système. Notre application doit permettre de :
+• Gérer le compte :
+- S’inscrire : cette application permet aux nouveaux utilisateurs de s’inscrire en remplissant un formulaire
+qui fournira vers la fin un login et mot de passe.
+- S’authentifier : permet à accéder au compte créé après la vérification des données.
+- Réinitialiser le mot de passe : en cas d’oublier il faut contacter l’administrateur pour réinitialiser le mot de
+passe on reçoit automatiquement un mail qui donne un nouveau mot de passe.
+- Mettre à jour son profil : permet aux utilisateurs de supprimer, ajouter et modifier leurs informations
+personnelles.
+- Consulter le profil : on peut consulter les coordonnées personnelles.
+.Gerer les recherches:
+-pour rechercher les vols disponibles dans un certain pays et à une certaine date, il faut remplir une forme et
+le serveur donne le résultat selon la disponibilité avec un prix d'ordre croissant.
+- pour rechercher les hôtels disponibles dans un certain pays et à une certaine date, il faut remplir une forme et
+le serveur donne le résultat selon la disponibilité avec un prix d'ordre croissant et la devise selon le pays.
+- l'achat s'effectue en remplissant un formulaire et cela se transfère dans une base de données et s'enregistre dans le profil du client
+
+
+Besoin non fonctionnel
+Ce sont des exigences qui ne concernent pas spécifiquement le comportement du système, mais plutôt identifiant des contraintes internes et externes du système.Les principaux besoins non fonctionnels de notre application
+se résument dans les points suivants :
+• Maintenabilité :
+Le code doit être compréhensible par simple lecture, notamment en respectant les règles de gestion et les
+normes de développement.
+• Capacité fonctionnelle et convivialité :
+Les composants développés doivent respecter les spécifications fournies. Le système doit être facilement
+utilisable et qu’il dispose d’interfaces conviviales, notamment par le respect des règles d’ergonomie.
+• Compatibilité :
+Notre application doit être compatible avec la machine de l’utilisateur, ainsi son screen résolution c’est-à-dire soit il est sur sa tablette ou son pc ou son smartphone.
+• Sécurité :
+Chaque utilisateur, pour accéder à l’application, est obligé de s’authentifier par un nom d’utilisateur et
+un mot de passe. Il ne pourra accéder qu’aux pages qui lui sont permises par son profil ou les droits
+d’accès qui lui sont affectés par l’administrateur.
+
+
+-conclusion:
+Après avoir dégagé les besoins fonctionnels et opérationnels et tous les critères
+qu’on doit prendre en considération, et afin de modéliser les besoins attendus de
+notre application et que les objectifs soient atteinte, on va suivre la démarche du
+processus unifié qu’on va le détailler dans la prochaine partie.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

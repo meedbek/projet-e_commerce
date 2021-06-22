@@ -18,31 +18,38 @@
 <?php include('header.php');?>
 
 <section >
-    <form method = 'POST' action = 'resultat_hotel.php' id = 'info_billets'>
-        
-        <div id = 'vole' >
-            <input type = 'text' name='ville' id='origine' placeholder = "ville" class = 'zone'>
-            <input type = 'text' name='checkIn' id='destination' placeholder = 'Arrivée' onblur = "if(this.value==''){this.type='text'}" onfocus = "this.type='date' " class = 'zone' required>
-            <input type = 'text' name='checkOut' id='date_depart' placeholder= 'Départ' onblur = "if(this.value==''){this.type='text'}" onfocus = "this.type='date' " class = 'zone' required> 
-        </div>
-        <div id = 'passagers' class = 'zone'>
-            <p></p>
-            <span class = 'triangle'></span>
-            <div id="menu">
-                <div id="pin"></div>
-                <ul >
-                    <li><h4>chambre</h4><input type = 'number' name='chambre' id='chambre' value=1 required></li>
-                    <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value =1 required ></li>
-                </ul>
-            </div>
+    
+    <div id="hotel">
+        <h2>Trouvez des offres sur des hôtels, et bien plus encore...</h2>
+        <form method = 'POST' action = 'resultat_hotel.php' id = 'info_billets'>
             
-        </div>
-        <div id = 'chercher_vol'><input type="submit" name='search' value='' id='chercher'></div>
-        
-    </form>
+            <div id = 'vole' >
+                <input type = 'text' name='ville' id='ville' placeholder = "ville" class = 'zone'>
+                <input type = 'text' name='checkIn' id='arrive' placeholder = 'Arrivée' onblur = "if(this.value==''){this.type='text'}" onfocus = "this.type='date' " class = 'zone' required>
+                <input type = 'text' name='checkOut' id='depart' placeholder= 'Départ' onblur = "if(this.value==''){this.type='text'}" onfocus = "this.type='date' " class = 'zone' required> 
+            </div>
+            <div id = 'passagers' class = 'zone'>
+                <p></p>
+                <span class = 'triangle'></span>
+                <div id="menu">
+                    <div id="pin"></div>
+                    <ul >
+                        <li><h4>chambre</h4><input type = 'number' name='chambre' id='chambre' value=1 required min = 1 max=9></li>
+                        <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value =1 required min = 1 max = 9></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div id = 'chercher_vol'><input type="submit" name='search' value='' id='chercher'></div>
+            
+        </form>
+    </div>
+    
    
 
 </section>
+
+<?php include("footer.php");?>
 
 <script>
     var passager = document.getElementById('passagers');
@@ -71,6 +78,23 @@
     
 
 
+</script>
+
+
+
+<script>
+    var date_depart = document.getElementById('date_depart');
+
+    var today = new Date();
+    var min_date = today.toISOString().split("T")[0];
+    today.setMonth(today.getMonth()+11);
+    var max_date =  today.toISOString().split("T")[0];
+
+    depart.setAttribute("min",min_date);
+    depart.setAttribute("max",max_date);
+    arrive.setAttribute("min",min_date);
+    arrive.setAttribute("max",max_date);
+    
 </script>
 
 </body>

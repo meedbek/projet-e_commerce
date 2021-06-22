@@ -1,16 +1,12 @@
 <?php
-
-$k = 20;
-$N = 0;
-for($j=0;$j<$k;$j++)
-{
-    $n=$N;
-    if($j!=1)
-        $N+=2;
-
-    for($i=$n;$i<$N;$i++)
-    {
-        echo $i.' ';
-    }
-}
 ?>
+
+<input type="email" value="c_mohammed@hotmail.fr" readonly>
+<button>modify</button>
+
+<script>
+    document.getElementsByTagName("button")[0].addEventListener('click',function(){
+        document.getElementsByTagName("input")[0].removeAttribute("readonly");
+    });
+</script>
+

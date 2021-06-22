@@ -1,0 +1,77 @@
+h2
+{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    font-size: 40px;
+}
+
+.fa-user-edit
+{
+    position: absolute;
+    top : 25px;
+    right : 25px;
+    font-size : 30px;
+    color :rgb(65, 62, 62);
+    cursor: pointer;
+}
+
+.fa-user-edit:hover{
+    color : black;
+}
+
+#choisir
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+#choisir div
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    align-items: center;
+    margin: 20px 0;
+}
+#FF
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 50px;
+    background-color: rgb(241, 241, 241);
+    width: fit-content;
+    border-radius: 80px;
+}
+
+.label{
+    font-size: 18px;
+}
+
+.txt{
+    height: 50px;
+    width: 200px;
+    font-size: 18px;
+}
+#FF input[type=submit]{
+    height: 50px;
+    width: 200px;
+    border:1px solid;
+    border-radius:5px;
+    cursor : pointer;
+    font-size: large;
+    background-color : rgb(65, 62, 62);
+    color : white;
+    margin-top : 10px;
+}
+
+#FF input[type=submit]:hover{
+    background-color: white;
+    color : black;
+}

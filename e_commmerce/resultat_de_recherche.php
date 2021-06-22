@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/resultat_recherche.css" />
     <title>E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -21,15 +23,16 @@
     <div class="container">
     <ul id="list">
             <li class ="choix" >
-                choix
-                <ul class="sub">
-                    <li><span class = "logo"><i class="fas fa-plane" ></i></span><a href="achat_billets.php">Billets</a></li>
-                    <li><a href="">Options2</a></li>
-                    <li><a href="">Options3</a></li>
-                </ul>
+                <div class = "text">Choix</div> 
+                <div class="sub">
+                    <a href="achat_billets.php"><div class="option"><div class="pin2"></div><i class="fas fa-plane" ></i><span>Billets</span></div></a>
+                    <a href="hotel.php"><div class="option"><i class="fas fa-hotel"></i><span>Hotels</span></div></a>
+                    <a href=""><div class="option"><i class="far fa-circle"></i><span>Option3</span></div></a>
+                </div>
+                
             </li>
-            <li class = "choix">contact</li>
-            <li class = "choix">Á propos</li>
+            <li class = "choix"><a class="text" href = "mail/Contact.php">Contactez-nous</a></li>
+            <li class = "choix"><a class = "text" href = "a_propos.php" >Á propos</a></li>
         </ul>
     </div>
     
@@ -37,7 +40,16 @@
 
     <?php
         if(isset($_SESSION['email']))
-            echo '  <form  id = signOut method="POST">
+            echo '  
+                    <div id= "profile" >
+                        <a href="profile.php"><i class="fas fa-user-circle"></i></a>
+                        <div class="sub2">
+                            <a href="info.php"><div class="option"><div class="pin2"></div><i class="fas fa-info-circle"></i><span>Mes infos</span></div></a>
+                            <a href="change_pass.php"><div class="option"><i class="fas fa-key"></i><span>Sécurité</span></div></a>
+                            <a href=""><div class="option"><i class="fas fa-book"></i><span>Achats</span></div></a>
+                        </div>
+                    </div>
+                    <form  id = signOut method="POST">
                     <input type = "hidden" name="origine"  value = '.$_POST['origine'].'>
                     <input type = "hidden" name="destination" value = '.$_POST['destination'].'>
                     <input type = "hidden" name="date_depart" value = '.$_POST['date_depart'].'>
@@ -46,22 +58,23 @@
                     <input type = "hidden" name="bébé"  value = '.$_POST['bébé'].' >
                     <input type = "hidden" name="classe" value='.$_POST['classe'].'>
                     <input type="submit" name="deconnexion" value = "deconnexion">
+                    </form>
                 ';
             
         else
             echo   '    
-                    <div id = sign_up>
-                        <a href="sign_up.php"><button>S\'identifier</button></a>
+                    <div id = "sign_up">
+                        <a href="sign_up.php"><button>S\'inscrire</button></a>
                     </div>
 
-                    <div id = login>
+                    <div id = "login">
                         <a href="login.php"><button>Connexion</button></a>
                     </div>
                     ';
     ?>
     </div>
     </header>
-    
+
     <section>
     <div id = resultat_recherche>
     <?php
@@ -69,6 +82,34 @@
         {
     
             $vole = search($_POST['origine'],$_POST['destination'],$_POST['date_depart'],$_POST['adulte'],$_POST['enfant'],$_POST['bébé'],$_POST['classe']);
+            if($vole == -1)
+            {
+                echo '<script>
+                        alert("Le nombre de bébé de doit pas dépasser le nombre d\'adulte");
+                        location = "achat_billets.php";    
+                      </script>';
+            }
+            elseif($vole == -2)
+            {
+                echo '<script>
+                        alert("La ville d\'origine que vous avez entré n\'existe pas");
+                        location = "achat_billets.php";    
+                      </script>';
+            }
+            elseif($vole == -4)
+            {
+                echo '<script>
+                        alert("La ville de destination que vous avez entré n\'existe pas");
+                        location = "achat_billets.php";    
+                     </script>';
+            }
+            elseif($vole == -3)
+            {
+                echo '<script>
+                        alert("Une erreur est survenu veuillez ressayer");
+                        location = "achat_billets.php";    
+                     </script>';
+            }
             $N=$vole['count'];
             for($i=0;$i<$N;$i++)
             {
@@ -131,18 +172,38 @@
                         <div class = \'block3\'>
                             '.$vole['vole'][$i]['price'].' DH
                         </div>
-                        <div class = \'buy\'><button>Sélectionner</button></div>
+                        ';
+            $data = array_merge($vole['vole'][$i],array('origine' => $_POST['origine'],'destination' => $_POST['destination'],'adulte' => $_POST['adulte'],'enfant' => $_POST['enfant'],'bebe' => $_POST['bébé'],'classe' => $_POST['classe']));
+            if(isset($_SESSION['email']))
+            {
+                echo '<form method = "POST" action="./stripe/checkout.php" class = "buy">
+                        <input type= "hidden" value = '.json_encode(array('billet',$data,$_SESSION['email'])).' name = "data">
+                        <input type="submit" value = "Séléctionner" name = "buy" >
+                    </form>';
+            }
+            else{
+                echo '<form method = "POST" action="login.php" class = "buy">
+                <input type= "hidden" value = '.json_encode(array('billet',$data)).' name = "data">
+                <input type="submit" value = "Séléctionner" name = "buy" >
+                </form>';
+            }           
+            echo'          
                 </div>';
             }
             if($N==0)
             {
-                echo ' Pas de resultat trouvé';
+                echo '<script>
+                        alert("Aucun résultat trouver");
+                        location = "achat_billets.php";    
+                     </script>';
             }
         }
         
     ?>
     </div>
     </section>
+    
+    <?php include("footer.php");?>
     
 
 </body>

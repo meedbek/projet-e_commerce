@@ -1,0 +1,33 @@
+#table{
+    margin-top: 30px;
+    border:solid 2px;
+    border-collapse: collapse;
+    font-size: larger;
+}
+
+caption{
+    margin-bottom: 40px;
+    font-size: 45px;
+}
+
+th{border:solid 2px; 
+padding:8px; 
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left; 
+background-color: #141414;
+color: white;
+
+}
+td{
+    border:solid 1px #ddd;
+    padding:8px;
+    text-align:center;
+    background-color: #f2f2f2;
+    cursor:pointer;
+    border-collapse: collapse;
+}
+td:hover{
+    background-color:#778899;
+    color:aliceblue;
+}

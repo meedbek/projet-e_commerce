@@ -17,41 +17,48 @@
 <?php include('header.php');?>
 
 <section >
-    <form method = 'POST' action = 'resultat_de_recherche.php' id = 'info_billets'>
-        
-        <div id = 'vole' >
-            <input type = 'text' name='origine' id='origine' placeholder = 'origine' class = 'zone'>
-            <input type = 'text' name='destination' id='destination' placeholder = 'destination' class = 'zone'>
-            <input type = 'date' name='date_depart' id='date_depart' class = 'zone'> 
-        </div>
-        <div id = 'passagers' class = 'zone'>
-            <p>passagers</p>
-            <span class = 'triangle'></span>
-            <div id="menu">
-                <div id="pin"></div>
-                <ul >
-                    <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value=1 required></li>
-                    <li><h4>enfant</h4><input type = 'number' name='enfant' id='enfant' value =0 required ></li>
-                    <li><h4>bébé</h4><input type = 'number' name='bébé' id='bébé' value =0 required></li>
-                </ul>
-            </div>
+    <div id="billet">
+        <h2>Bienvenue ! Trouvez un billet d’avion flexible pour votre prochain voyage.</h2>
+        <form method = 'POST' action = 'resultat_de_recherche.php' id = 'info_billets'>
             
-        </div>
-        <div id = 'classe' class = 'zone'>
-            <select name="classe"   >
-                <option value='ECONOMY' default>economie</option>
-                <option value="PREMIUM_ECONOMY">premium_economie</option>
-                <option value="BUSINESS">business</option>
-                <option value="FIRST">première</option>
-            </select>
-            <span class = 'triangle'></span>
-        </div>
-        <div id = 'chercher_vol'><input type="submit" name='chercher' value='' id='chercher'></div>
+            <div id = 'vole' >
+                <input type = 'text' name='origine' id='origine' placeholder = 'origine' class = 'zone' required>
+                <input type = 'text' name='destination' id='destination' placeholder = 'destination' class = 'zone' required>
+                <input type = 'date' name='date_depart' id='date_depart' class = 'zone' required > 
+            </div>
+            <div id = 'passagers' class = 'zone'>
+                <p>passagers</p>
+                <span class = 'triangle'></span>
+                <div id="menu">
+                    <div id="pin"></div>
+                    <ul >
+                        <li><h4>adulte</h4><input type = 'number' name='adulte' id='adulte' value=1 required min=1 max=9></li>
+                        <li><h4>enfant</h4><input type = 'number' name='enfant' id='enfant' value =0 required min=0 max=9></li>
+                        <li><h4>bébé</h4><input type = 'number' name='bébé' id='bébé' value =0 required min=0 max=9></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div id = 'classe' class = 'zone'>
+                <select name="classe"  required>
+                    <option value='ECONOMY' default>economie</option>
+                    <option value="PREMIUM_ECONOMY">premium_economie</option>
+                    <option value="BUSINESS">business</option>
+                    <option value="FIRST">première</option>
+                </select>
+                <span class = 'triangle'></span>
+            </div>
+            <div id = 'chercher_vol'><input type="submit" name='chercher' value='' id='chercher'></div>
+            </form>
+    </div>
+    
         
-    </form>
+    
    
 
 </section>
+
+<?php include("footer.php");?>
 
 <script>
     var passager = document.getElementById('passagers');
@@ -69,6 +76,30 @@
     });
 
 
+</script>
+
+<script>
+    var adulte = document.getElementById('adulte');
+    var bebe = document.getElementById('bébé');
+
+    document.querySelectorAll('#adulte, #bébé').forEach(item => item.addEventListener('input',function(e){
+        e.stopPropagation();
+        if(adulte.value < bebe.value )
+            bebe.value = adulte.value;
+    }));
+</script>
+
+<script>
+    var date_depart = document.getElementById('date_depart');
+
+    var today = new Date();
+    var min_date = today.toISOString().split("T")[0];
+    today.setMonth(today.getMonth()+11);
+    var max_date =  today.toISOString().split("T")[0];
+
+    date_depart.setAttribute("min",min_date);
+    date_depart.setAttribute("max",max_date);
+    
 </script>
 
 </body>

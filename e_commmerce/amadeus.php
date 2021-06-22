@@ -38,8 +38,7 @@ function access_token()
 
 function search($source, $destination, $date, $adult, $enfant, $bebe,$classe)
 {
-    if($adult < $bebe)
-        return -1;
+
     try{
         $bdd = new PDO('mysql:host=localhost:3307;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
@@ -53,8 +52,10 @@ function search($source, $destination, $date, $adult, $enfant, $bebe,$classe)
     $result2 = $bdd->prepare('SELECT city_code FROM iata_cities WHERE lower(city_english) = lower(?)  ');
     $result2->execute(array($destination));
     
-    if( ! ($iata_source = $result1->fetch()) || ! ($iata_destination = $result2->fetch()) )
+    if( ! ($iata_source = $result1->fetch()))
         return -2;
+    if(! ($iata_destination = $result2->fetch()))
+        return -4;
     
     $iata1 = $iata_source['city_code'];
     $iata2 = $iata_destination['city_code'];
@@ -77,17 +78,22 @@ function search($source, $destination, $date, $adult, $enfant, $bebe,$classe)
     curl_close($curl);
     $result = json_decode($resp,true);
 
-    $element = array('count'=> $result['meta']['count'],'vole'=>array());
-    
-    for($i=0;$i<$element['count'];$i++)
+    if(isset($result['meta']['count']))
     {
+        $element = array('count'=> $result['meta']['count'],'vole'=>array());
+    
+        for($i=0;$i<$element['count'];$i++)
+        {
         $element['vole'][$i] = array('airline' => $result['data'][$i]['itineraries'][0]['segments'][0]['carrierCode'],
                                      'depart' => $result['data'][$i]['itineraries'][0]['segments'][0]['departure']['at'],
-                                     'arrive' => $result['data'][$i]['itineraries'][0]['segments'][0]['departure']['at'],
+                                     'arrive' => $result['data'][$i]['itineraries'][0]['segments'][0]['arrival']['at'],
                                      'price'  => $result['data'][$i]['price']['total']);
+        }
+        return $element;
     }
-    return $element;
-
+    
+    return -3;
+    
 }
 
 function search_hotel($ville, $arrive, $depart, $chambre, $adulte)
@@ -113,7 +119,7 @@ function search_hotel($ville, $arrive, $depart, $chambre, $adulte)
         $city = $iata_ville['city_code'];
 
         $url = "https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=".$city."&checkInDate=".$arrive."&checkOutDate=".$depart."&roomQuantity=".$chambre."&adults=".$adulte."&currency=MAD&lang=FR-fr"; 
-        //$url = "https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=PAR&checkInDate=2021-06-22&checkOutDate=2021-06-25&roomQuantity=1&adults=1&currency=MAD&lang=FR-fr";
+        //$url = "https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=CAS&checkInDate=2021-06-22&checkOutDate=2021-06-25&roomQuantity=1&adults=1&currency=MAD&lang=FR-fr";
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -133,26 +139,28 @@ function search_hotel($ville, $arrive, $depart, $chambre, $adulte)
         $n = $N;
         if(isset($rs['data'])){
             $N += count($rs['data']);
+            for($i=$n;$i<$N;$i++)
+            {
+                if(isset($rs['data'][$i-$n]['hotel']['description']['text']))
+                    $description = $rs['data'][$i-$n]['hotel']['description']['text'];
+                else
+                    $description = '';
+                
+                if(isset($rs['data'][$i-$n]['hotel']['rating']))
+                    $stars = $rs['data'][$i-$n]['hotel']['rating'];
+                else    
+                    $stars = 0;
+                $element[$i] = array('nom' => Iisset($rs['data'][$i-$n]['hotel']['name']),
+                                    'adresse' => Iisset($rs['data'][$i-$n]['hotel']['address']['lines'][0].' '. $rs['data'][$i-$n]['hotel']['address']['cityName']),
+                                    'distance' => Iisset($rs['data'][$i-$n]['hotel']['hotelDistance']['distance']),
+                                    'stars' =>$stars,
+                                    'price'  => Iisset($rs['data'][$i-$n]['offers'][0]['price']['total']),
+                                    'currency' => Iisset($rs['data'][$i-$n]['offers'][0]['price']['currency']),
+                                    'description' => $description,
+                                    'hotelId' => Iisset($rs['data'][$i-$n]['hotel']['hotelId']));
+            }
         }
-        for($i=$n;$i<$N;$i++)
-        {
-            if(isset($rs['data'][$i-$n]['hotel']['description']['text']))
-                $description = $rs['data'][$i-$n]['hotel']['description']['text'];
-            else
-                $description = '';
-            
-            if(isset($rs['data'][$i-$n]['hotel']['rating']))
-                $stars = $rs['data'][$i-$n]['hotel']['rating'];
-            else    
-                $stars = 0;
-            $element[$i] = array('nom' => Iisset($rs['data'][$i-$n]['hotel']['name']),
-                                'adresse' => Iisset($rs['data'][$i-$n]['hotel']['address']['lines'][0].' '. $rs['data'][$i-$n]['hotel']['address']['cityName']),
-                                'distance' => Iisset($rs['data'][$i-$n]['hotel']['hotelDistance']['distance']),
-                                'stars' =>$stars,
-                                'price'  => Iisset($rs['data'][$i-$n]['offers'][0]['price']['total']),
-                                'currency' => Iisset($rs['data'][$i-$n]['offers'][0]['price']['currency']),
-                                'description' => $description);
-        }
+        
     }while($iata_ville = $result1->fetch());
     
     return $element;
