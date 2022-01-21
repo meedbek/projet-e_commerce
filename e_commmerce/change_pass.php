@@ -6,7 +6,7 @@
     if(isset($_SESSION['email']))
     {
             try{
-                $bdd = new PDO('mysql:host=localhost:3307;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                $bdd = new PDO('mysql:host=localhost:3306;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             }   
             catch(Exception $e)
             {
@@ -47,6 +47,7 @@
         {
             $prepare = $bdd->prepare("UPDATE user SET _password = ? WHERE email = ?");
             $prepare->execute(array(md5($_POST['new']), $_SESSION["email"]));
+            echo"<script>alert('mot de passe modifier avec succes');location = 'profile.php'</script>";
         }
     }
 ?>
@@ -57,7 +58,7 @@
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/change_pass.css" />
-    <title>E_commerce</title>
+    <title>ENSIAS E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 
@@ -75,8 +76,8 @@
 
     <?php include("footer.php")?>
 
-    <?php if(!$old) echo "<script>alert('old pass is wrong')</script>";
-          elseif(!$new) echo"<script>alert('confirm pass wrong')</script>";
+    <?php if(!$old) echo "<script>alert('ancien mot de passe incorrecte')</script>";
+          elseif(!$new) echo"<script>alert('confirmation de mot de passe incorrecte')</script>";
     ?> 
 
 </body>

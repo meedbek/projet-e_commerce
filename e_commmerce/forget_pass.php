@@ -40,6 +40,12 @@ if(isset($_POST['recup_pass']))
             $password = $bdd->prepare('UPDATE user SET _password = ?  WHERE email = ?');
             $password->execute(array(md5($new_pass),$_POST['check_email']));
             $wrong_email = false;
+
+            //recupération du prenom
+            $prepare = $bdd->prepare('Select prenom from user where email= ?');
+            $prepare->execute(array($email['email']));
+            $prenom = $prepare->fetch();
+
             break;
         }
         else
@@ -57,7 +63,7 @@ if(isset($_POST['recup_pass']))
             $Nom_a_envoyer = "ENISAS e_commerce";
             $Email_a_envoyer = "google@google.com";
             $Subject_a_envoyer = "Recuperer mot de passe";
-            $bodyContent  = "Voici votre nouveau mot passe pour :<br/><br/> &#8287 &#8287 &#8287 Email :".$_POST['check_email']."<br/> &#8287 &#8287 &#8287 Mot de passe :".$new_pass;
+            $bodyContent  = "<h3>Bonjour ".$prenom['prenom']."</h3><p>Voici votre nouveau mot passe pour :<br/><br/> &#8287 &#8287 &#8287 Email :".$_POST['check_email']."<br/> &#8287 &#8287 &#8287 Mot de passe :".$new_pass."</p> <p>ENSIAS E_commerce</p>";
 
 
 
@@ -101,7 +107,7 @@ if(isset($_POST['recup_pass']))
             if (!$mail->send()) {
                 //echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
 
-                echo '<script>window.alert(\'Erreur  !! Votre Message n\'est pas envoyer .$mail->ErrorInfo\');window.location = \'login.php\';</script>';
+                echo '<script>window.alert("Erreur  !! Votre Message n\'est pas envoyer .$mail->ErrorInfo");window.location = \'login.php\';</script>';
             } else {
                 //echo 'Message has been sent.';
                 echo '<script>window.alert(\' Votre Message est Bien Envoyer \');window.location = \'login.php\';</script>';
@@ -125,7 +131,7 @@ if(isset($_POST['recup_pass']))
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style_forget.css"/>
-    <title>E_commerce</title>
+    <title>ENSIAS E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 

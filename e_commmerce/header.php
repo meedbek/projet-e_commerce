@@ -14,7 +14,7 @@
             </div>
             
         </li>
-        <li class = "choix"><a class="text" href = "mail/Contact.php">Contactez-nous</a></li>
+        <li class = "choix"><a class="text" href = "contact.php">Contactez-nous</a></li>
         <li class = "choix"><a class = "text" href = "a_propos.php" >Á propos</a></li>
     </ul>
 </div>

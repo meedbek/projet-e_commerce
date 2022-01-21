@@ -8,7 +8,7 @@
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/resultat_hotel.css" />
-    <title>E_commerce</title>
+    <title>ENSIAS E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 
@@ -29,7 +29,7 @@
                 </div>
                 
             </li>
-            <li class = "choix"><a class="text" href = "mail/Contact.php">Contactez-nous</a></li>
+            <li class = "choix"><a class="text" href = "contact.php">Contactez-nous</a></li>
             <li class = "choix"><a class = "text" href = "a_propos.php" >Á propos</a></li>
         </ul>
     </div>

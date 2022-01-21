@@ -11,7 +11,7 @@
         if(isset($_POST['login']))
         {
             try{
-            $bdd = new PDO('mysql:host=localhost:3307;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $bdd = new PDO('mysql:host=localhost:3306;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             }   
             catch(Exception $e)
             {
@@ -61,7 +61,7 @@
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style_login.css" />
-    <title>E_commerce</title>
+    <title>ENSIAS E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 
@@ -98,7 +98,7 @@
         <div id = "doMore">
             <div>
                 <input type="checkbox" name='remember_me' id='remember me'>
-                <label for="remember_me">Se souvenir de moi</label> 
+                <label for="remember_me">Rester connecté</label> 
             </div>
             <a href="forget_pass.php">Mot de passe oublié</a>
         </div>

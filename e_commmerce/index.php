@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/slider.css" />
 
     <link rel="href" href="css/plane-solid.svg">
-    <title>E_commerce</title>
+    <title>ENSIAS E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
 </head>
 
@@ -28,7 +28,7 @@
                 <li class="slide-container">
                     <div class="slide-image">
                         <img src="css/image/airplane-wallpaper-3.jpg">
-                        <a herf="achat_billets.php" class = "titre" id="titre1">RÉSERVER UN BILLET D'AVION</a>
+                        <a href="achat_billets.php" class = "titre" id="titre1">RÉSERVER UN BILLET D'AVION</a>
                     </div>
                     <div class="carousel-controls">
                         <label for="img-3" class="prev-slide">
@@ -43,7 +43,7 @@
                 <li class="slide-container">
                     <div class="slide-image">
                         <img src="css/image/dfh_pool-33.jpg">
-                        <a herf="hotel.php" class = "titre" id="titre2">RÉSERVER HOTEL</a>
+                        <a href="hotel.php" class = "titre" id="titre2">RÉSERVER HOTEL</a>
                     </div>
                     <div class="carousel-controls">
                         <label for="img-1" class="prev-slide">

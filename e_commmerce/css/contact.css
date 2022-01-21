@@ -1,0 +1,78 @@
+.contact-form
+{
+    width : 1200px;
+    margin : auto;
+}
+
+.my-4
+{
+    margin: 50px 0;
+}
+.CONTAIN
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card1{
+    width : 68%;
+}
+
+.card2{
+    width: 28%;
+    height: min-content;
+}
+
+.card1, .card2{
+    background-color: white;
+    border-radius:5px;
+}
+
+.card-header{
+    box-sizing: border-box;
+    padding : 8px 15px;
+    color : white;
+}
+
+.card-body{
+    box-sizing: border-box;
+    padding : 10px 15px;
+}
+
+.form-group
+{
+    display: flex;
+    flex-direction: column ;
+    margin: 10px 0;
+}
+
+textarea{
+    height:max-content !important;
+}
+
+.form-group *
+{
+    margin : 2px 0;
+    height: 30px;
+}
+
+.form-control
+{
+    border : solid 0.3px rgb(216, 214, 214);
+}
+.btn
+{
+    border:1px solid;
+    border-radius:5px;
+    font-size: large;
+    background-color : rgb(65, 62, 62);
+    color : white;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.btn:hover{
+    background-color: white;
+    color : black;
+}
+    

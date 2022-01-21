@@ -40,7 +40,7 @@ function search($source, $destination, $date, $adult, $enfant, $bebe,$classe)
 {
 
     try{
-        $bdd = new PDO('mysql:host=localhost:3307;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=localhost:3306;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e){
         die('Error : '.$e->message);
@@ -100,7 +100,7 @@ function search_hotel($ville, $arrive, $depart, $chambre, $adulte)
 {
     
     try{
-        $bdd = new PDO('mysql:host=localhost:3307;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $bdd = new PDO('mysql:host=localhost:3306;dbname=vole;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch(Exception $e){
         die('Error : '.$e->message);

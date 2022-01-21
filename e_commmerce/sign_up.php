@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
-    <title>blog</title>
+    <title>ENSIAS E_commerce</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style_sign_up.css" />
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
@@ -38,7 +38,7 @@
                         else
                         {
                             try{
-                                $bdd = new PDO('mysql:host=localhost:3307;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                                $bdd = new PDO('mysql:host=localhost:3306;dbname=utilisateur;charset=utf8','root','root',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
                             }
                             catch(Exception $e){
                                 die('Error : '.$e->message);

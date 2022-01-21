@@ -8,7 +8,7 @@
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/resultat_recherche.css" />
-    <title>E_commerce</title>
+    <title>ENSIAS E_commerce</title>
     <script src="https://kit.fontawesome.com/1d881ea511.js" crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
@@ -31,7 +31,7 @@
                 </div>
                 
             </li>
-            <li class = "choix"><a class="text" href = "mail/Contact.php">Contactez-nous</a></li>
+            <li class = "choix"><a class="text" href = "contact.php">Contactez-nous</a></li>
             <li class = "choix"><a class = "text" href = "a_propos.php" >Á propos</a></li>
         </ul>
     </div>

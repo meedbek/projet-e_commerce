@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name=viewport content=widthdevice-width, initial-scale=1.0>
-    <title>blog</title>
+    <title>ENSIAS E_commerce</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style_achat_billets.css" />
     <link rel='stylesheet' href="css/style_hotel.css"/>
