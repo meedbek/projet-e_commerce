@@ -25,7 +25,7 @@ include './stripe-php/init.php';
 
 header('Content-Type: application/json');
 
-$YOUR_DOMAIN = 'http://localhost/e_commmerce/stripe/';
+$YOUR_DOMAIN = 'http://localhost/e_commerce/stripe/';
 
 $checkout_session = \Stripe\Checkout\Session::create([
   'payment_method_types' => ['card'],

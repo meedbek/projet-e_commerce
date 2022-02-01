@@ -14,7 +14,7 @@
       var stripe = Stripe("pk_test_51J4PDVFAmzYgltFNwXkScGY1l4h5MYZ9GMOGbynW80unDs1hXJJezGgc4HtMqiMUhVnyj4UaRruCXEQ6P76ORby700ufapyh0p");
       var checkoutButton = document.getElementById("checkout-button");
 
-        fetch("http://localhost/e_commmerce/stripe/create-checkout-session.php", {
+        fetch("http://localhost/e_commerce/stripe/create-checkout-session.php", {
           method: "POST",
         })
           .then(function (response) {

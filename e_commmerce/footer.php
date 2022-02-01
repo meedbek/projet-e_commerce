@@ -4,9 +4,9 @@
         <div id="ressources">
             <h3><i class="fas fa-location-arrow"></i>ENSIAS</h3>
             <p>
-                <a href="http://localhost/e_commmerce/a_propos.php">À propos</a><br/>
-                <a href="http://localhost/e_commmerce/contact.php">Contactez-nous</a><br/>
-                <a href="http://localhost/e_commmerce/index.php">Acceuil</a><br/>
+                <a href="http://localhost/e_commerce/a_propos.php">À propos</a><br/>
+                <a href="http://localhost/e_commerce/contact.php">Contactez-nous</a><br/>
+                <a href="http://localhost/e_commerce/index.php">Acceuil</a><br/>
             </p>
         </div>
         <div id="Contact">

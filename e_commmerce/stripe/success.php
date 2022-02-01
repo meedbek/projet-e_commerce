@@ -125,13 +125,13 @@ session_start();
       echo'
           <script>
               alert("Votre achat a été fait avec succès\nVous recevrez un email contenant votre comfirmation de paiement");
-              location = "http://localhost/e_commmerce/index.php";    
+              location = "http://localhost/e_commerce/index.php";    
           </script>;
       ';
       
   }
   else
   {
-    header("Location : http://localhost/e_commmerce/index.php",true,307);
+    header("Location : http://localhost/e_commerce/index.php",true,307);
   }
 ?>
