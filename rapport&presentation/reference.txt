@@ -1,4 +1,0 @@
-https://developers.amadeus.com/self-service
-https://fr.wikipedia.org/wiki/Amadeus_(entreprise)
-https://en.wikipedia.org/wiki/Stripe_(company)
-https://www.programmableweb.com/api/stripe
